@@ -51,10 +51,10 @@ main {
   --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'Space Mono', monospace;
 
-  /* Fluid Type Scale */
-  --text-hero: clamp(2.75rem, 6.5vw, 5.75rem);
-  --text-h2: clamp(2rem, 4vw, 3.5rem);
-  --text-h3: clamp(1.25rem, 2.2vw, 1.85rem);
+  /* Fluid Type Scale - Gehärtet nach v7.1 Gate */
+  --text-hero: clamp(1.75rem, 5vw + 0.5rem, 5.75rem);
+  --text-h2: clamp(1.75rem, 3.8vw, 3.5rem);
+  --text-h3: clamp(1.15rem, 2vw, 1.85rem);
   --text-body: clamp(0.95rem, 0.9rem + 0.2vw, 1.0625rem);
   --text-small: clamp(0.8125rem, 0.8rem + 0.05vw, 0.875rem);
 
@@ -566,15 +566,22 @@ a {
   .hero-left-flank { display: flex; }
 }
 .vertical-axis-text {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
+  writing-mode: horizontal-tb;
+  transform: none;
   font-family: var(--font-mono);
   font-size: 0.6875rem;
   letter-spacing: 0.2em;
   color: var(--sc-ink-muted);
   display: flex;
   gap: 1rem;
-  white-space: nowrap;
+  white-space: normal;
+}
+@media (min-width: 1024px) {
+  .vertical-axis-text {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+  }
 }
 .axis-coord { color: var(--sc-accent-roetel); font-weight: 700; }
 .axis-sep { color: var(--sc-accent); }
@@ -642,12 +649,27 @@ a {
 
 .hero-title {
   font-size: var(--text-hero);
-  line-height: 0.95;
+  line-height: 1.02;
   margin-bottom: var(--sp-6);
-  overflow: hidden;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  text-wrap: balance;
 }
 .title-line {
   display: block;
+  max-width: 100%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+.hero-title .word {
+  display: inline-block;
+  max-width: 100%;
+}
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: clamp(1.5rem, 7.2vw, 2.25rem);
+    letter-spacing: -0.02em;
+  }
 }
 
 .hero-lead {
