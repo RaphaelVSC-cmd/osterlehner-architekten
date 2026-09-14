@@ -1,0 +1,16 @@
+{
+  "name": "Osterlehner Architekten GmbH",
+  "short_name": "Osterlehner",
+  "description": "Architekturbüro für Bauen im Bestand, Dachaufstockungen, Konversionen und Denkmalpflege in Augsburg seit 1999.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F3EFEA",
+  "theme_color": "#325244",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
